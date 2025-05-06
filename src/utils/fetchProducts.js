@@ -2,12 +2,12 @@ import * as cheerio from "cheerio";
 
 export const fetchProducts = async (i, fetch) => {
   try {
-    const response = await fetch("/products", {
-      method: "POST",
+    const response = await fetch(`/products?i=${i}`, {
+      method: "GET",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ i }),
+      // body: JSON.stringify({ i }),
     });
 
     if (!response.ok) {

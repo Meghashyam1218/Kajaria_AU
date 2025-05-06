@@ -3,7 +3,11 @@ import * as cheerio from "cheerio";
 /** @type {import('@sveltejs/kit').RequestHandler} */
 export const GET = async ({ request }) => {
   try {
-    const { i } = await request.json(); // Get the "i" parameter from the client request
+    const url = new URL(request.url);
+    const i = url.searchParams.get('i');
+    if (!i) {
+      throw new Error(`Missing 'i' query parameter ${url}`);
+    }
 
     const response = await fetch("https://www.kajariaeternity.com/ajaxgetData.php", {
       method: "POST",

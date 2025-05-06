@@ -2,7 +2,7 @@
 	let isOpen = false;
 </script>
 
-<nav class="sticky top-0 z-10 bg-white/80 backdrop-blur-md">
+<nav class="sticky top-0 z-10 bg-zinc-100/50 backdrop-blur-md">
 	<div class="mx-auto max-w-[100rem] px-4 sm:px-6">
 		<div class="flex h-18 items-center justify-between">
 			<!-- Logo -->
@@ -12,6 +12,9 @@
 
 			<!-- Desktop Menu -->
 			<div class="hidden space-x-8 font-semibold md:flex">
+				<a data-sveltekit-preload-data="hover" href="/" class="text-gray-950 hover:text-gray-800"
+					>Home</a
+				>
 				<a
 					data-sveltekit-preload-data="hover"
 					href="/about-us"
@@ -63,6 +66,11 @@
 	<!-- Mobile Menu -->
 	{#if isOpen}
 		<div class="bg-white shadow-md md:hidden">
+			<a
+				data-sveltekit-preload-data="tap"
+				href="/"
+				class="block px-4 py-2 text-gray-950 hover:bg-gray-100">Home</a
+			>
 			<a
 				data-sveltekit-preload-data="tap"
 				href="/about-us"

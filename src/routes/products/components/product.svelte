@@ -6,7 +6,7 @@
 	class="product-card flex cursor-pointer flex-col rounded-xl p-4 transition-all ease-in hover:scale-110"
 >
 	<img
-		class="h-[200px] w-full rounded-2xl object-cover"
+		class="h-[200px] w-[350px] rounded-2xl object-cover"
 		src={product.imgLink}
 		alt={product.title}
 	/>

@@ -24,7 +24,7 @@
 	];
 </script>
 
-<section class="mx-auto my-20 w-[90vw] max-w-[1440px] md:p-8">
+<section class="mx-auto w-[90vw] max-w-[1440px] md:p-8">
 	<div class=" mb-5 text-4xl font-black text-emerald-600 max-md:text-center md:mb-10">
 		What Our Customers Say
 	</div>

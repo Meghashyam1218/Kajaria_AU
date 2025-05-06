@@ -8,7 +8,7 @@
 
 	let products = extractedData;
 	let error = null;
-	var i = 13;
+	var i = 1;
 	var loadMore = true;
 	const loadProducts = async (i) => {
 		try {

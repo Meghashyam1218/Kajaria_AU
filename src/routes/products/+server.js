@@ -1,7 +1,7 @@
 import * as cheerio from "cheerio";
 
 /** @type {import('@sveltejs/kit').RequestHandler} */
-export const POST = async ({ request }) => {
+export const GET = async ({ request }) => {
   try {
     const { i } = await request.json(); // Get the "i" parameter from the client request
 

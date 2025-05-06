@@ -77,6 +77,12 @@
 			>
 			<a
 				alt="none"
+				href="/e-catalogue"
+				class="font-bold text-gray-500 underline-offset-2 hover:underline max-lg:text-sm"
+				>E-Catalogue</a
+			>
+			<a
+				alt="none"
 				href="/contact-us"
 				class="font-bold text-gray-500 underline-offset-2 hover:underline max-lg:text-sm"
 				>Contact Us</a

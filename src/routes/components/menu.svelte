@@ -22,6 +22,11 @@
 				>
 				<a
 					data-sveltekit-preload-data="hover"
+					href="/#services"
+					class="text-gray-950 hover:text-gray-800">Services</a
+				>
+				<a
+					data-sveltekit-preload-data="hover"
 					href="/products"
 					class="text-gray-950 hover:text-gray-800">Products</a
 				>
@@ -65,31 +70,41 @@
 
 	<!-- Mobile Menu -->
 	{#if isOpen}
-		<div class="bg-white shadow-md md:hidden">
+		<div class="  md:hidden">
 			<a
 				data-sveltekit-preload-data="tap"
 				href="/"
-				class="block px-4 py-2 text-gray-950 hover:bg-gray-100">Home</a
+				class="block px-4 py-2 text-center font-semibold text-gray-950 hover:bg-gray-100">Home</a
 			>
 			<a
 				data-sveltekit-preload-data="tap"
 				href="/about-us"
-				class="block px-4 py-2 text-gray-950 hover:bg-gray-100">About Us</a
+				class="block px-4 py-2 text-center font-semibold text-gray-950 hover:bg-gray-100"
+				>About Us</a
+			>
+			<a
+				data-sveltekit-preload-data="tap"
+				href="/#services"
+				class="block px-4 py-2 text-center font-semibold text-gray-950 hover:bg-gray-100"
+				>Services</a
 			>
 			<a
 				data-sveltekit-preload-data="tap"
 				href="/products"
-				class="block px-4 py-2 text-gray-950 hover:bg-gray-100">Products</a
+				class="block px-4 py-2 text-center font-semibold text-gray-950 hover:bg-gray-100"
+				>Products</a
 			>
 			<a
 				data-sveltekit-preload-data="tap"
 				href="/e-catalogue"
-				class="block px-4 py-2 text-gray-950 hover:bg-gray-100">E-Catalogue</a
+				class="block px-4 py-2 text-center font-semibold text-gray-950 hover:bg-gray-100"
+				>E-Catalogue</a
 			>
 			<a
 				data-sveltekit-preload-data="tap"
 				href="/contact-us"
-				class="block px-4 py-2 text-gray-950 hover:bg-gray-100">Contact Us</a
+				class="block px-4 py-2 text-center font-semibold text-gray-950 hover:bg-gray-100"
+				>Contact Us</a
 			>
 		</div>
 	{/if}

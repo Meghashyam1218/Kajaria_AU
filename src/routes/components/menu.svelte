@@ -17,7 +17,11 @@
 					href="/about-us"
 					class="text-gray-950 hover:text-gray-800">About Us</a
 				>
-				<a href="/products" class="text-gray-950 hover:text-gray-800">Products</a>
+				<a
+					data-sveltekit-preload-data="hover"
+					href="/products"
+					class="text-gray-950 hover:text-gray-800">Products</a
+				>
 				<a
 					data-sveltekit-preload-data="hover"
 					href="/e-catalogue"
@@ -64,7 +68,11 @@
 				href="/about-us"
 				class="block px-4 py-2 text-gray-950 hover:bg-gray-100">About Us</a
 			>
-			<a href="/products" class="block px-4 py-2 text-gray-950 hover:bg-gray-100">Products</a>
+			<a
+				data-sveltekit-preload-data="tap"
+				href="/products"
+				class="block px-4 py-2 text-gray-950 hover:bg-gray-100">Products</a
+			>
 			<a
 				data-sveltekit-preload-data="tap"
 				href="/e-catalogue"

@@ -12,10 +12,26 @@
 
 			<!-- Desktop Menu -->
 			<div class="hidden space-x-8 font-semibold md:flex">
-				<a href="/about-us" class="text-gray-950 hover:text-gray-800">About Us</a>
-				<a href="/products" class="text-gray-950 hover:text-gray-800">Products</a>
-				<a href="/e-catalogue" class="text-gray-950 hover:text-gray-800">E-Catalogue</a>
-				<a href="/contact-us" class="text-gray-950 hover:text-gray-800">Contact Us</a>
+				<a
+					data-sveltekit-preload-data="hover"
+					href="/about-us"
+					class="text-gray-950 hover:text-gray-800">About Us</a
+				>
+				<a
+					data-sveltekit-preload-data="hover"
+					href="/products"
+					class="text-gray-950 hover:text-gray-800">Products</a
+				>
+				<a
+					data-sveltekit-preload-data="hover"
+					href="/e-catalogue"
+					class="text-gray-950 hover:text-gray-800">E-Catalogue</a
+				>
+				<a
+					data-sveltekit-preload-data="hover"
+					href="/contact-us"
+					class="text-gray-950 hover:text-gray-800">Contact Us</a
+				>
 			</div>
 
 			<!-- Mobile Menu Button -->
@@ -47,10 +63,26 @@
 	<!-- Mobile Menu -->
 	{#if isOpen}
 		<div class="bg-white shadow-md md:hidden">
-			<a href="/about-us" class="block px-4 py-2 text-gray-950 hover:bg-gray-100">About Us</a>
-			<a href="/products" class="block px-4 py-2 text-gray-950 hover:bg-gray-100">Products</a>
-			<a href="/e-catalogue" class="block px-4 py-2 text-gray-950 hover:bg-gray-100">E-Catalogue</a>
-			<a href="/contact-us" class="block px-4 py-2 text-gray-950 hover:bg-gray-100">Contact Us</a>
+			<a
+				data-sveltekit-preload-data="tap"
+				href="/about-us"
+				class="block px-4 py-2 text-gray-950 hover:bg-gray-100">About Us</a
+			>
+			<a
+				data-sveltekit-preload-data="tap"
+				href="/products"
+				class="block px-4 py-2 text-gray-950 hover:bg-gray-100">Products</a
+			>
+			<a
+				data-sveltekit-preload-data="tap"
+				href="/e-catalogue"
+				class="block px-4 py-2 text-gray-950 hover:bg-gray-100">E-Catalogue</a
+			>
+			<a
+				data-sveltekit-preload-data="tap"
+				href="/contact-us"
+				class="block px-4 py-2 text-gray-950 hover:bg-gray-100">Contact Us</a
+			>
 		</div>
 	{/if}
 </nav>

@@ -47,7 +47,6 @@
 			<iframe
 				title="map"
 				src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4052.639046496313!2d115.94385107627295!3d-32.013147173992174!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2a32bde2b017308d%3A0x47d146be48dac273!2swa%20kajaria%20ceramics!5e1!3m2!1sen!2sin!4v1746555720683!5m2!1sen!2sin"
-				width="400"
 				height="200"
 				style="border:0;"
 				allowfullscreen=""

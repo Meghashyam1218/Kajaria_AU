@@ -24,8 +24,8 @@
 	];
 </script>
 
-<section class="mx-auto w-[90vw] max-w-[1440px] md:p-8">
-	<div class=" mb-5 text-4xl font-black text-emerald-600 max-md:text-center md:mb-10">
+<section class="mx-auto mt-8 w-[90vw] max-w-[1440px] md:p-8">
+	<div class=" mb-5 text-2xl font-black text-emerald-600 max-md:text-center md:mb-10 md:text-4xl">
 		What Our Customers Say
 	</div>
 	<swiper-container navigation="true" loop="true">

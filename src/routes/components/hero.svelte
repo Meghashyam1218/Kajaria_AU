@@ -47,7 +47,7 @@
 			href="/products"
 			class="my-4 flex cursor-pointer items-center justify-center rounded-2xl bg-zinc-100 p-4 font-semibold text-zinc-700 hover:font-bold"
 		>
-			<p class="mr-2 text-2xl">Explore All Products</p>
+			<p class="mr-2 text-xl md:text-2xl">Explore All Products</p>
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
 				height="24px"

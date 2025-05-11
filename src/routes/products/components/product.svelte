@@ -3,6 +3,7 @@
 </script>
 
 <div
+	data-aos="flip-up"
 	class="product-card flex min-w-[350px] cursor-pointer flex-col rounded-xl p-2 transition-all ease-in hover:scale-110"
 >
 	<img

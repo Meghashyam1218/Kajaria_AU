@@ -37,8 +37,13 @@ export const GET = async ({ request }) => {
       const imgLink = $(element).find('img.animate').attr('src');
       const title = $(element).find('h4').text().trim();
       const description = $(element).find('p').text().trim();
-      const size = $(element).find('.etnPdtSize').text().trim();
-
+      var size = $(element).find('.etnPdtSize').text().trim();
+      const sizeParts = size.split('x');
+      if (sizeParts.length === 2) {
+        const width = parseInt(sizeParts[0], 10) * 10;
+        const height = parseInt(sizeParts[1], 10) * 10;
+        size = `${width}X${height} mm`;
+      }
       extractedData.push({ imgLink, title, description, size });
     });
 

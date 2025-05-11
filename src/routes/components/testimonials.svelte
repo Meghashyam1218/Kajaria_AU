@@ -22,13 +22,21 @@
 				'Excellent products, professional services, they are very friendly to deal with, I am so satisfied. Highly recommended. WA Kajaria ceramics Have done tiling throughout our house and turned out to exceed our expectations, The work is very clean and perfect the work was exceptional. Appreciate the skills and experience they have. We highly recommend them to our friends and family.'
 		}
 	];
+	const spaceBetween = 10;
 </script>
 
 <section class="mx-auto mt-8 w-[90vw] max-w-[1440px] md:p-8">
 	<div class=" mb-5 text-2xl font-black text-emerald-600 max-md:text-center md:mb-10 md:text-4xl">
 		What Our Customers Say
 	</div>
-	<swiper-container navigation="true" loop="true">
+	<swiper-container
+		space-between={spaceBetween}
+		centered-slides={true}
+		pagination={{
+			hideOnClick: true
+		}}
+		navigation={true}
+	>
 		{#each testimonials as testimonial, i}
 			<swiper-slide class="p-8">
 				<div

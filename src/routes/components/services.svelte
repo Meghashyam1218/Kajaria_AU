@@ -62,7 +62,8 @@
 		<div class="options-container grid-cols-1 gap-2 md:grid-cols-2 xl:grid-cols-4">
 			{#each tileOptions as option}
 				<button
-					class="option-button {selectedOption.id === option.id ? 'selected' : ''}"
+					data-aos="zoom-in"
+					class="option-button p-2 text-lg {selectedOption.id === option.id ? 'selected' : ''}"
 					on:click={() => selectOption(option)}
 				>
 					{option.name}
@@ -71,8 +72,8 @@
 		</div>
 
 		<div class="content-container">
-			<div class="image-toggle-container">
-				<div class="image-wrapper">
+			<div class="image-toggle-container border-2">
+				<div data-aos="zoom-in" class="image-wrapper">
 					{#if showAfterImage}
 						<img
 							src={selectedOption.afterImage || '/placeholder.svg'}
@@ -95,11 +96,9 @@
 				</button>
 			</div>
 
-			<div class="description-container flex max-h-[300px] flex-col p-4">
+			<div class="description-container mt-2 flex max-h-[300px] flex-col p-4">
 				<h2 class="text-lg font-bold">{selectedOption.name}</h2>
 				<p class="mb-4 overflow-auto">{selectedOption.description}</p>
-
-				<button class="learn-more-button">Learn More</button>
 			</div>
 		</div>
 	</div>
@@ -126,11 +125,11 @@
 	}
 
 	.option-button {
-		padding: 16px;
+		/* padding: 16px; */
 		border: 3px solid #e2e8f0;
 		background-color: white;
 		border-radius: 8px;
-		font-size: 16px;
+		/* font-size: 16px; */
 		font-weight: 500;
 		cursor: pointer;
 		transition: all 0.2s ease;

@@ -83,18 +83,18 @@
 
 <main class="mx-auto max-w-7xl p-4 sm:p-6 lg:p-8">
 	<div class="mb-8 text-center">
-		<h1 class="text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl">
+		<h1 class="text-4xl font-extrabold tracking-tight text-[#204e44] sm:text-5xl">
 			Our Tile Collection
 		</h1>
-		<p class="mt-4 text-xl text-gray-600">Find the perfect tile for your next project.</p>
+		<p class="mt-4 text-xl text-[#204e44]/80">Find the perfect tile for your next project.</p>
 	</div>
 
 	<!-- Filtering Form Section -->
 	<section
 		aria-labelledby="filter-heading"
-		class="mb-8 rounded-lg border border-gray-200 bg-gray-50 p-6 shadow-sm"
+		class="mb-8 rounded-lg border border-gray-200 bg-[#204e44]/5 p-6 shadow-sm"
 	>
-		<h2 id="filter-heading" class="mb-4 text-2xl font-bold text-gray-800">Filter Tiles</h2>
+		<h2 id="filter-heading" class="mb-4 text-2xl font-bold text-[#204e44]">Filter Tiles</h2>
 		<form
 			on:submit|preventDefault={handleFilterChange}
 			class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4 lg:items-start"
@@ -102,18 +102,18 @@
 			<!-- Category Dropdown -->
 			<div>
 				<!-- svelte-ignore a11y_label_has_associated_control -->
-				<label class="mb-1 block text-sm font-medium text-gray-700">Size (Category)</label>
+				<label class="mb-1 block text-sm font-medium text-[#204e44]">Size (Category)</label>
 				<details
 					bind:this={categoryDetails}
 					use:clickOutside
 					class="group relative rounded-md border border-gray-300 bg-white"
 				>
 					<summary
-						class="flex cursor-pointer list-none items-center justify-between p-2 text-sm font-medium text-gray-700 hover:bg-gray-50"
+						class="flex cursor-pointer list-none items-center justify-between p-2 text-sm font-medium text-[#204e44] hover:bg-[#ffd400]/20"
 					>
 						<span>{categories.label[categories.value.indexOf(category)] ?? 'Select Size'}</span>
 						<svg
-							class="h-5 w-5 transform text-gray-500 transition-transform duration-200 group-open:rotate-180"
+							class="h-5 w-5 transform text-[#204e44] transition-transform duration-200 group-open:rotate-180"
 							xmlns="http://www.w3.org/2000/svg"
 							viewBox="0 0 20 20"
 							fill="currentColor"
@@ -141,6 +141,7 @@
 										name="category"
 										value={categories.value[i]}
 										bind:group={category}
+										class="accent-[#204e44]"
 									/>
 									<span>{categoryOption}</span>
 								</label>
@@ -153,14 +154,14 @@
 			<!-- Finish Dropdown -->
 			<div>
 				<!-- svelte-ignore a11y_label_has_associated_control -->
-				<label class="mb-1 block text-sm font-medium text-gray-700">Finish</label>
+				<label class="mb-1 block text-sm font-medium text-[#204e44]">Finish</label>
 				<details use:clickOutside class="group relative rounded-md border border-gray-300 bg-white">
 					<summary
-						class="flex cursor-pointer list-none items-center justify-between p-2 text-sm font-medium text-gray-700 hover:bg-gray-50"
+						class="flex cursor-pointer list-none items-center justify-between p-2 text-sm font-medium text-[#204e44] hover:bg-[#ffd400]/20"
 					>
 						<span>{finish.length > 0 ? `${finish.length} selected` : 'Any Finish'}</span>
 						<svg
-							class="h-5 w-5 transform text-gray-500 transition-transform duration-200 group-open:rotate-180"
+							class="h-5 w-5 transform text-[#204e44] transition-transform duration-200 group-open:rotate-180"
 							xmlns="http://www.w3.org/2000/svg"
 							viewBox="0 0 20 20"
 							fill="currentColor"
@@ -183,6 +184,7 @@
 										value={finishings.value[i]}
 										checked={finish.includes(finishings.value[i])}
 										on:change={() => (finish = toggleArray(finish, finishings.value[i]))}
+										class="accent-[#204e44]"
 									/>
 									<span>{finishOption}</span>
 								</label>
@@ -195,16 +197,16 @@
 			<!-- Subcategories Dropdown -->
 			<div>
 				<!-- svelte-ignore a11y_label_has_associated_control -->
-				<label class="mb-1 block text-sm font-medium text-gray-700">Application</label>
+				<label class="mb-1 block text-sm font-medium text-[#204e44]">Application</label>
 				<details use:clickOutside class="group relative rounded-md border border-gray-300 bg-white">
 					<summary
-						class="flex cursor-pointer list-none items-center justify-between p-2 text-sm font-medium text-gray-700 hover:bg-gray-50"
+						class="flex cursor-pointer list-none items-center justify-between p-2 text-sm font-medium text-[#204e44] hover:bg-[#ffd400]/20"
 					>
 						<span
 							>{subcategory.length > 0 ? `${subcategory.length} selected` : 'Any Application'}</span
 						>
 						<svg
-							class="h-5 w-5 transform text-gray-500 transition-transform duration-200 group-open:rotate-180"
+							class="h-5 w-5 transform text-[#204e44] transition-transform duration-200 group-open:rotate-180"
 							xmlns="http://www.w3.org/2000/svg"
 							viewBox="0 0 20 20"
 							fill="currentColor"
@@ -228,6 +230,7 @@
 										checked={subcategory.includes(subcategories.value[i])}
 										on:change={() =>
 											(subcategory = toggleArray(subcategory, subcategories.value[i]))}
+										class="accent-[#204e44]"
 									/>
 									<span>{subcategoryOption}</span>
 								</label>
@@ -240,7 +243,7 @@
 			<!-- Submit Button -->
 			<button
 				type="submit"
-				class="mt-auto w-full rounded-md bg-blue-600 px-4 py-2 text-base font-semibold text-white shadow-md transition-colors duration-200 hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:outline-none lg:h-10"
+				class="mt-auto w-full rounded-md bg-[#204e44] px-4 py-2 text-base font-semibold text-white shadow-md transition-colors duration-200 hover:bg-[#1a3e36] focus:ring-2 focus:ring-[#ffd400] focus:ring-offset-2 focus:outline-none lg:h-10"
 			>
 				Apply Filters
 			</button>
@@ -260,7 +263,7 @@
 			>
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
-					class="h-12 w-12 text-gray-400"
+					class="h-12 w-12 text-[#204e44]/50"
 					fill="none"
 					viewBox="0 0 24 24"
 					stroke="currentColor"
@@ -272,18 +275,18 @@
 						d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
 					/>
 				</svg>
-				<p class="mt-4 text-lg font-medium text-gray-600">No products match your criteria.</p>
-				<p class="text-sm text-gray-500">Try adjusting your filters.</p>
+				<p class="mt-4 text-lg font-medium text-[#204e44]">No products match your criteria.</p>
+				<p class="text-sm text-[#204e44]/80">Try adjusting your filters.</p>
 			</div>
 		{:else}
 			<div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
 				{#each products as product (product.name)}
 					<div
-						class="group relative overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+						class="group relative overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-[#204e44]/10"
 					>
-						{#if product.isNew}
+						{#if product.isNew === 'New'}
 							<span
-								class="absolute top-3 right-3 z-10 rounded-full bg-green-500 px-3 py-1 text-xs font-bold text-white uppercase"
+								class="absolute top-3 right-3 z-10 rounded-full bg-[#ffd400] px-3 py-1 text-xs font-bold text-[#204e44] uppercase"
 							>
 								New!
 							</span>
@@ -296,10 +299,10 @@
 							/>
 						</div>
 						<div class="p-4">
-							<h2 class="truncate text-lg font-bold text-gray-800" title={product.name}>
+							<h2 class="truncate text-lg font-bold text-[#204e44]" title={product.name}>
 								{product.name}
 							</h2>
-							<p class="text-md mt-1 font-semibold text-gray-600">{product.price}</p>
+							<p class="text-md mt-1 font-semibold text-[#204e44]">{product.price}</p>
 						</div>
 					</div>
 				{/each}

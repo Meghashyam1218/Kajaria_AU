@@ -31,8 +31,19 @@ export const load = async ({ url }) => {
         isNew: product.new
       };
     });
+    // Sort products to show 'New' items first
+    products.sort((a, b) => {
+      if (a.isNew === 'New' && b.isNew !== 'New') {
+        return -1; // a comes first
+      }
+      if (b.isNew === 'New' && a.isNew !== 'New') {
+        return 1; // b comes first
+      }
+      return 0; // No change in order
+    });
+
     console.log({ products });
-    return { products }; // Return an array of products
+    return { products };  // Return an array of products
   } catch (error) {
     console.error("Error fetching products:", error);
     return { products: [], error: "Unable to fetch products" };

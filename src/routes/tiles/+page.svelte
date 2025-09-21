@@ -4,9 +4,8 @@
 
 	export let data;
 	export let { products } = data;
-	export let error = data.error ?? null; // Get error from load function data if it exists
+	export let error = data.error ?? null;
 
-	// --- Filter options ---
 	const categories = {
 		label: ['300x600', '600x600', '600x1200', '800x1600', '200x1200'],
 		value: ['26', '27', '28', '29', '30']
@@ -26,15 +25,11 @@
 	};
 	const subcategories = { label: ['Floor Tiles', 'Wall Tiles'], value: ['49', '50'] };
 
-	// --- Component State ---
-	// Get initial values from URL search params. This is the correct SvelteKit way.
 	let category = $page.url.searchParams.get('category') ?? '26';
 	let finish = $page.url.searchParams.get('finish')?.split(',').filter(Boolean) ?? [];
 	let subcategory = $page.url.searchParams.get('subcategory')?.split(',').filter(Boolean) ?? [];
 
-	// --- Functions ---
 	const handleFilterChange = () => {
-		// Construct the search parameters
 		const params = new URLSearchParams();
 
 		if (category) {
@@ -50,11 +45,40 @@
 		const query = `/tiles?${params.toString()}`;
 		console.log('Navigating to: ' + query);
 
-		// Use SvelteKit's goto for client-side navigation.
-		// It's much faster than a full page reload.
 		window.location = query;
 		// goto(query, { keepFocus: true, noScroll: true });
 	};
+
+	function toggleArray(arr, value) {
+		if (arr.includes(value)) {
+			return arr.filter((v) => v !== value);
+		} else {
+			return [...arr, value];
+		}
+	}
+
+	/**
+	 * Svelte action to detect clicks outside of a node.
+	 * Closes the node if it has an 'open' property.
+	 */
+	function clickOutside(node) {
+		const handleClick = (event) => {
+			if (node && !node.contains(event.target) && node.open) {
+				node.open = false;
+			}
+		};
+
+		document.addEventListener('click', handleClick, true);
+
+		return {
+			destroy() {
+				document.removeEventListener('click', handleClick, true);
+			}
+		};
+	}
+
+	// A reference to the category <details> element to close it on selection
+	let categoryDetails;
 </script>
 
 <main class="mx-auto max-w-7xl p-4 sm:p-6 lg:p-8">
@@ -73,60 +97,150 @@
 		<h2 id="filter-heading" class="mb-4 text-2xl font-bold text-gray-800">Filter Tiles</h2>
 		<form
 			on:submit|preventDefault={handleFilterChange}
-			class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4 lg:items-end"
+			class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4 lg:items-start"
 		>
-			<!-- Category Select -->
-			<div class="flex flex-col">
-				<label for="category-select" class="mb-1 text-sm font-medium text-gray-700"
-					>Size (Category)</label
+			<!-- Category Dropdown -->
+			<div>
+				<!-- svelte-ignore a11y_label_has_associated_control -->
+				<label class="mb-1 block text-sm font-medium text-gray-700">Size (Category)</label>
+				<details
+					bind:this={categoryDetails}
+					use:clickOutside
+					class="group relative rounded-md border border-gray-300 bg-white"
 				>
-				<select
-					id="category-select"
-					bind:value={category}
-					class="w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
-				>
-					{#each categories.label as categoryOption, i}
-						<option value={categories.value[i]}>{categoryOption}</option>
-					{/each}
-				</select>
+					<summary
+						class="flex cursor-pointer list-none items-center justify-between p-2 text-sm font-medium text-gray-700 hover:bg-gray-50"
+					>
+						<span>{categories.label[categories.value.indexOf(category)] ?? 'Select Size'}</span>
+						<svg
+							class="h-5 w-5 transform text-gray-500 transition-transform duration-200 group-open:rotate-180"
+							xmlns="http://www.w3.org/2000/svg"
+							viewBox="0 0 20 20"
+							fill="currentColor"
+						>
+							<path
+								fill-rule="evenodd"
+								d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+								clip-rule="evenodd"
+							/>
+						</svg>
+					</summary>
+					<div
+						class="absolute z-10 mt-1 w-full rounded-b-md border border-gray-200 bg-white p-4 shadow-lg"
+					>
+						<div
+							class="flex flex-col gap-2"
+							on:change={() => {
+								if (categoryDetails) categoryDetails.open = false;
+							}}
+						>
+							{#each categories.label as categoryOption, i}
+								<label class="flex items-center gap-2">
+									<input
+										type="radio"
+										name="category"
+										value={categories.value[i]}
+										bind:group={category}
+									/>
+									<span>{categoryOption}</span>
+								</label>
+							{/each}
+						</div>
+					</div>
+				</details>
 			</div>
 
-			<!-- Finish Select -->
-			<div class="flex flex-col">
-				<label for="finish-select" class="mb-1 text-sm font-medium text-gray-700">Finish</label>
-				<select
-					id="finish-select"
-					bind:value={finish}
-					multiple
-					class="h-24 w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
-				>
-					{#each finishings.label as finishOption, i}
-						<option value={finishings.value[i]}>{finishOption}</option>
-					{/each}
-				</select>
+			<!-- Finish Dropdown -->
+			<div>
+				<!-- svelte-ignore a11y_label_has_associated_control -->
+				<label class="mb-1 block text-sm font-medium text-gray-700">Finish</label>
+				<details use:clickOutside class="group relative rounded-md border border-gray-300 bg-white">
+					<summary
+						class="flex cursor-pointer list-none items-center justify-between p-2 text-sm font-medium text-gray-700 hover:bg-gray-50"
+					>
+						<span>{finish.length > 0 ? `${finish.length} selected` : 'Any Finish'}</span>
+						<svg
+							class="h-5 w-5 transform text-gray-500 transition-transform duration-200 group-open:rotate-180"
+							xmlns="http://www.w3.org/2000/svg"
+							viewBox="0 0 20 20"
+							fill="currentColor"
+						>
+							<path
+								fill-rule="evenodd"
+								d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+								clip-rule="evenodd"
+							/>
+						</svg>
+					</summary>
+					<div
+						class="absolute z-10 mt-1 w-full rounded-b-md border border-gray-200 bg-white p-4 shadow-lg"
+					>
+						<div class="flex flex-col gap-2">
+							{#each finishings.label as finishOption, i}
+								<label class="flex items-center gap-2">
+									<input
+										type="checkbox"
+										value={finishings.value[i]}
+										checked={finish.includes(finishings.value[i])}
+										on:change={() => (finish = toggleArray(finish, finishings.value[i]))}
+									/>
+									<span>{finishOption}</span>
+								</label>
+							{/each}
+						</div>
+					</div>
+				</details>
 			</div>
 
-			<!-- Subcategories Select -->
-			<div class="flex flex-col">
-				<label for="subcategory-select" class="mb-1 text-sm font-medium text-gray-700"
-					>Application</label
-				>
-				<select
-					id="subcategory-select"
-					bind:value={subcategory}
-					multiple
-					class="h-24 w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
-				>
-					{#each subcategories.label as subcategoryOption, i}
-						<option value={subcategories.value[i]}>{subcategoryOption}</option>
-					{/each}
-				</select>
+			<!-- Subcategories Dropdown -->
+			<div>
+				<!-- svelte-ignore a11y_label_has_associated_control -->
+				<label class="mb-1 block text-sm font-medium text-gray-700">Application</label>
+				<details use:clickOutside class="group relative rounded-md border border-gray-300 bg-white">
+					<summary
+						class="flex cursor-pointer list-none items-center justify-between p-2 text-sm font-medium text-gray-700 hover:bg-gray-50"
+					>
+						<span
+							>{subcategory.length > 0 ? `${subcategory.length} selected` : 'Any Application'}</span
+						>
+						<svg
+							class="h-5 w-5 transform text-gray-500 transition-transform duration-200 group-open:rotate-180"
+							xmlns="http://www.w3.org/2000/svg"
+							viewBox="0 0 20 20"
+							fill="currentColor"
+						>
+							<path
+								fill-rule="evenodd"
+								d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+								clip-rule="evenodd"
+							/>
+						</svg>
+					</summary>
+					<div
+						class="absolute z-10 mt-1 w-full rounded-b-md border border-gray-200 bg-white p-4 shadow-lg"
+					>
+						<div class="flex flex-col gap-2">
+							{#each subcategories.label as subcategoryOption, i}
+								<label class="flex items-center gap-2">
+									<input
+										type="checkbox"
+										value={subcategories.value[i]}
+										checked={subcategory.includes(subcategories.value[i])}
+										on:change={() =>
+											(subcategory = toggleArray(subcategory, subcategories.value[i]))}
+									/>
+									<span>{subcategoryOption}</span>
+								</label>
+							{/each}
+						</div>
+					</div>
+				</details>
 			</div>
 
 			<!-- Submit Button -->
 			<button
 				type="submit"
-				class="w-full rounded-md bg-blue-600 px-4 py-2 text-base font-semibold text-white shadow-md transition-colors duration-200 hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:outline-none lg:h-10"
+				class="mt-auto w-full rounded-md bg-blue-600 px-4 py-2 text-base font-semibold text-white shadow-md transition-colors duration-200 hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:outline-none lg:h-10"
 			>
 				Apply Filters
 			</button>
@@ -164,7 +278,6 @@
 		{:else}
 			<div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
 				{#each products as product (product.name)}
-					<!-- Using a key is good practice for lists -->
 					<div
 						class="group relative overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
 					>

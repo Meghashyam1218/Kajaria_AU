@@ -1,4 +1,4 @@
-<script>
+<!-- <script>
 	import { register } from 'swiper/element/bundle';
 	// register Swiper custom elements
 	register();
@@ -32,6 +32,7 @@
 	<swiper-container
 		space-between={spaceBetween}
 		centered-slides={true}
+		loop={true}
 		pagination={{
 			hideOnClick: true
 		}}
@@ -81,4 +82,4 @@
 		--swiper-navigation-sides-offset: 10px;
 		--swiper-navigation-color: var(--swiper-theme-color);
 	}
-</style>
+</style> -->

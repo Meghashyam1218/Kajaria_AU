@@ -1,0 +1,747 @@
+{
+	"filter_attributes": [
+		{
+			"id": 24,
+			"code": "size",
+			"admin_name": "Size",
+			"type": "select",
+			"validation": null,
+			"position": 27,
+			"is_required": 0,
+			"is_unique": 0,
+			"value_per_locale": 0,
+			"value_per_channel": 0,
+			"is_filterable": 1,
+			"is_configurable": 1,
+			"is_user_defined": 1,
+			"is_visible_on_front": 1,
+			"created_at": "2022-10-18T08:37:25.000000Z",
+			"updated_at": "2023-03-28T21:14:42.000000Z",
+			"swatch_type": "text",
+			"use_in_flat": 1,
+			"is_comparable": 0,
+			"enable_wysiwyg": 0,
+			"name": "Size",
+			"pivot": {
+				"category_id": 26,
+				"attribute_id": 24
+			},
+			"options": [
+				{
+					"id": 10,
+					"admin_name": "200x12000 mm",
+					"sort_order": 0,
+					"attribute_id": 24,
+					"swatch_value": null,
+					"label": "200x12000 mm",
+					"translations": [
+						{
+							"id": 10,
+							"locale": "en",
+							"label": "200x12000 mm",
+							"attribute_option_id": 10
+						},
+						{
+							"id": 11,
+							"locale": "fr",
+							"label": "",
+							"attribute_option_id": 10
+						},
+						{
+							"id": 12,
+							"locale": "nl",
+							"label": "",
+							"attribute_option_id": 10
+						},
+						{
+							"id": 13,
+							"locale": "tr",
+							"label": "",
+							"attribute_option_id": 10
+						},
+						{
+							"id": 14,
+							"locale": "es",
+							"label": "",
+							"attribute_option_id": 10
+						}
+					]
+				},
+				{
+					"id": 11,
+					"admin_name": "600x1200 mm",
+					"sort_order": 1,
+					"attribute_id": 24,
+					"swatch_value": null,
+					"label": "600x1200 mm",
+					"translations": [
+						{
+							"id": 15,
+							"locale": "en",
+							"label": "600x1200 mm",
+							"attribute_option_id": 11
+						},
+						{
+							"id": 16,
+							"locale": "fr",
+							"label": "",
+							"attribute_option_id": 11
+						},
+						{
+							"id": 17,
+							"locale": "nl",
+							"label": "",
+							"attribute_option_id": 11
+						},
+						{
+							"id": 18,
+							"locale": "tr",
+							"label": "",
+							"attribute_option_id": 11
+						},
+						{
+							"id": 19,
+							"locale": "es",
+							"label": "",
+							"attribute_option_id": 11
+						}
+					]
+				},
+				{
+					"id": 12,
+					"admin_name": "600x600 mm",
+					"sort_order": 2,
+					"attribute_id": 24,
+					"swatch_value": null,
+					"label": "600x600 mm",
+					"translations": [
+						{
+							"id": 20,
+							"locale": "en",
+							"label": "600x600 mm",
+							"attribute_option_id": 12
+						},
+						{
+							"id": 21,
+							"locale": "fr",
+							"label": "",
+							"attribute_option_id": 12
+						},
+						{
+							"id": 22,
+							"locale": "nl",
+							"label": "",
+							"attribute_option_id": 12
+						},
+						{
+							"id": 23,
+							"locale": "tr",
+							"label": "",
+							"attribute_option_id": 12
+						},
+						{
+							"id": 24,
+							"locale": "es",
+							"label": "",
+							"attribute_option_id": 12
+						}
+					]
+				},
+				{
+					"id": 14,
+					"admin_name": "300x600 mm",
+					"sort_order": 4,
+					"attribute_id": 24,
+					"swatch_value": null,
+					"label": "300x600 mm",
+					"translations": [
+						{
+							"id": 30,
+							"locale": "en",
+							"label": "300x600 mm",
+							"attribute_option_id": 14
+						},
+						{
+							"id": 31,
+							"locale": "fr",
+							"label": "",
+							"attribute_option_id": 14
+						},
+						{
+							"id": 32,
+							"locale": "nl",
+							"label": "",
+							"attribute_option_id": 14
+						},
+						{
+							"id": 33,
+							"locale": "tr",
+							"label": "",
+							"attribute_option_id": 14
+						},
+						{
+							"id": 34,
+							"locale": "es",
+							"label": "",
+							"attribute_option_id": 14
+						}
+					]
+				},
+				{
+					"id": 18,
+					"admin_name": "800x1600 mm",
+					"sort_order": 8,
+					"attribute_id": 24,
+					"swatch_value": null,
+					"label": "800x1600 mm",
+					"translations": [
+						{
+							"id": 50,
+							"locale": "en",
+							"label": "800x1600 mm",
+							"attribute_option_id": 18
+						},
+						{
+							"id": 51,
+							"locale": "fr",
+							"label": "",
+							"attribute_option_id": 18
+						},
+						{
+							"id": 52,
+							"locale": "nl",
+							"label": "",
+							"attribute_option_id": 18
+						},
+						{
+							"id": 53,
+							"locale": "tr",
+							"label": "",
+							"attribute_option_id": 18
+						},
+						{
+							"id": 54,
+							"locale": "es",
+							"label": "",
+							"attribute_option_id": 18
+						}
+					]
+				}
+			],
+			"translations": [
+				{
+					"id": 24,
+					"locale": "en",
+					"name": "Size",
+					"attribute_id": 24
+				},
+				{
+					"id": 41,
+					"locale": "es",
+					"name": "",
+					"attribute_id": 24
+				},
+				{
+					"id": 38,
+					"locale": "fr",
+					"name": "",
+					"attribute_id": 24
+				},
+				{
+					"id": 39,
+					"locale": "nl",
+					"name": "",
+					"attribute_id": 24
+				},
+				{
+					"id": 40,
+					"locale": "tr",
+					"name": "",
+					"attribute_id": 24
+				}
+			]
+		},
+		{
+			"id": 31,
+			"code": "subcategory",
+			"admin_name": "Product Type",
+			"type": "select",
+			"validation": "",
+			"position": null,
+			"is_required": 1,
+			"is_unique": 0,
+			"value_per_locale": 0,
+			"value_per_channel": 0,
+			"is_filterable": 1,
+			"is_configurable": 1,
+			"is_user_defined": 1,
+			"is_visible_on_front": 1,
+			"created_at": "2022-11-15T08:32:29.000000Z",
+			"updated_at": "2022-11-15T08:37:29.000000Z",
+			"swatch_type": "dropdown",
+			"use_in_flat": 1,
+			"is_comparable": 0,
+			"enable_wysiwyg": 0,
+			"name": "Product Type",
+			"pivot": {
+				"category_id": 26,
+				"attribute_id": 31
+			},
+			"options": [
+				{
+					"id": 49,
+					"admin_name": "Floor Tiles",
+					"sort_order": 0,
+					"attribute_id": 31,
+					"swatch_value": null,
+					"label": "Floor Tiles",
+					"translations": [
+						{
+							"id": 205,
+							"locale": "en",
+							"label": "Floor Tiles",
+							"attribute_option_id": 49
+						},
+						{
+							"id": 206,
+							"locale": "fr",
+							"label": "Floor Tiles",
+							"attribute_option_id": 49
+						},
+						{
+							"id": 207,
+							"locale": "nl",
+							"label": "Floor Tiles",
+							"attribute_option_id": 49
+						},
+						{
+							"id": 208,
+							"locale": "tr",
+							"label": "Floor Tiles",
+							"attribute_option_id": 49
+						},
+						{
+							"id": 209,
+							"locale": "es",
+							"label": "Floor Tiles",
+							"attribute_option_id": 49
+						}
+					]
+				},
+				{
+					"id": 50,
+					"admin_name": "Wall Tiles",
+					"sort_order": 1,
+					"attribute_id": 31,
+					"swatch_value": null,
+					"label": "Wall Tiles",
+					"translations": [
+						{
+							"id": 210,
+							"locale": "en",
+							"label": "Wall Tiles",
+							"attribute_option_id": 50
+						},
+						{
+							"id": 211,
+							"locale": "fr",
+							"label": "Wall Tiles",
+							"attribute_option_id": 50
+						},
+						{
+							"id": 212,
+							"locale": "nl",
+							"label": "Wall Tiles",
+							"attribute_option_id": 50
+						},
+						{
+							"id": 213,
+							"locale": "tr",
+							"label": "Wall Tiles",
+							"attribute_option_id": 50
+						},
+						{
+							"id": 214,
+							"locale": "es",
+							"label": "Wall Tiles",
+							"attribute_option_id": 50
+						}
+					]
+				}
+			],
+			"translations": [
+				{
+					"id": 47,
+					"locale": "en",
+					"name": "Product Type",
+					"attribute_id": 31
+				},
+				{
+					"id": 51,
+					"locale": "es",
+					"name": "",
+					"attribute_id": 31
+				},
+				{
+					"id": 48,
+					"locale": "fr",
+					"name": "",
+					"attribute_id": 31
+				},
+				{
+					"id": 49,
+					"locale": "nl",
+					"name": "",
+					"attribute_id": 31
+				},
+				{
+					"id": 50,
+					"locale": "tr",
+					"name": "",
+					"attribute_id": 31
+				}
+			]
+		},
+		{
+			"id": 33,
+			"code": "Finish",
+			"admin_name": "Finish",
+			"type": "multiselect",
+			"validation": "",
+			"position": null,
+			"is_required": 1,
+			"is_unique": 0,
+			"value_per_locale": 0,
+			"value_per_channel": 1,
+			"is_filterable": 1,
+			"is_configurable": 0,
+			"is_user_defined": 1,
+			"is_visible_on_front": 1,
+			"created_at": "2022-11-15T09:02:13.000000Z",
+			"updated_at": "2023-03-22T20:59:50.000000Z",
+			"swatch_type": null,
+			"use_in_flat": 0,
+			"is_comparable": 0,
+			"enable_wysiwyg": 0,
+			"name": "Finish",
+			"pivot": {
+				"category_id": 26,
+				"attribute_id": 33
+			},
+			"options": [
+				{
+					"id": 56,
+					"admin_name": "Premium Polished",
+					"sort_order": 0,
+					"attribute_id": 33,
+					"swatch_value": null,
+					"label": "Premium Polished",
+					"translations": [
+						{
+							"id": 240,
+							"locale": "en",
+							"label": "Premium Polished",
+							"attribute_option_id": 56
+						},
+						{
+							"id": 241,
+							"locale": "fr",
+							"label": "",
+							"attribute_option_id": 56
+						},
+						{
+							"id": 242,
+							"locale": "nl",
+							"label": "",
+							"attribute_option_id": 56
+						},
+						{
+							"id": 243,
+							"locale": "tr",
+							"label": "",
+							"attribute_option_id": 56
+						},
+						{
+							"id": 244,
+							"locale": "es",
+							"label": "",
+							"attribute_option_id": 56
+						}
+					]
+				},
+				{
+					"id": 57,
+					"admin_name": "Marbletech",
+					"sort_order": 1,
+					"attribute_id": 33,
+					"swatch_value": null,
+					"label": "Marbletech",
+					"translations": [
+						{
+							"id": 245,
+							"locale": "en",
+							"label": "Marbletech",
+							"attribute_option_id": 57
+						},
+						{
+							"id": 246,
+							"locale": "fr",
+							"label": "",
+							"attribute_option_id": 57
+						},
+						{
+							"id": 247,
+							"locale": "nl",
+							"label": "",
+							"attribute_option_id": 57
+						},
+						{
+							"id": 248,
+							"locale": "tr",
+							"label": "",
+							"attribute_option_id": 57
+						},
+						{
+							"id": 249,
+							"locale": "es",
+							"label": "",
+							"attribute_option_id": 57
+						}
+					]
+				},
+				{
+					"id": 58,
+					"admin_name": "Polished",
+					"sort_order": 2,
+					"attribute_id": 33,
+					"swatch_value": null,
+					"label": "Polished",
+					"translations": [
+						{
+							"id": 250,
+							"locale": "en",
+							"label": "Polished",
+							"attribute_option_id": 58
+						},
+						{
+							"id": 251,
+							"locale": "fr",
+							"label": "",
+							"attribute_option_id": 58
+						},
+						{
+							"id": 252,
+							"locale": "nl",
+							"label": "",
+							"attribute_option_id": 58
+						},
+						{
+							"id": 253,
+							"locale": "tr",
+							"label": "",
+							"attribute_option_id": 58
+						},
+						{
+							"id": 254,
+							"locale": "es",
+							"label": "",
+							"attribute_option_id": 58
+						}
+					]
+				},
+				{
+					"id": 59,
+					"admin_name": "Super White",
+					"sort_order": 3,
+					"attribute_id": 33,
+					"swatch_value": null,
+					"label": "Super White",
+					"translations": [
+						{
+							"id": 255,
+							"locale": "en",
+							"label": "Super White",
+							"attribute_option_id": 59
+						},
+						{
+							"id": 256,
+							"locale": "fr",
+							"label": "",
+							"attribute_option_id": 59
+						},
+						{
+							"id": 257,
+							"locale": "nl",
+							"label": "",
+							"attribute_option_id": 59
+						},
+						{
+							"id": 258,
+							"locale": "tr",
+							"label": "",
+							"attribute_option_id": 59
+						},
+						{
+							"id": 259,
+							"locale": "es",
+							"label": "",
+							"attribute_option_id": 59
+						}
+					]
+				},
+				{
+					"id": 60,
+					"admin_name": "Premium Matt",
+					"sort_order": 4,
+					"attribute_id": 33,
+					"swatch_value": null,
+					"label": "Premium Matt",
+					"translations": [
+						{
+							"id": 260,
+							"locale": "en",
+							"label": "Premium Matt",
+							"attribute_option_id": 60
+						},
+						{
+							"id": 261,
+							"locale": "fr",
+							"label": "",
+							"attribute_option_id": 60
+						},
+						{
+							"id": 262,
+							"locale": "nl",
+							"label": "",
+							"attribute_option_id": 60
+						},
+						{
+							"id": 263,
+							"locale": "tr",
+							"label": "",
+							"attribute_option_id": 60
+						},
+						{
+							"id": 264,
+							"locale": "es",
+							"label": "",
+							"attribute_option_id": 60
+						}
+					]
+				},
+				{
+					"id": 61,
+					"admin_name": "Matt",
+					"sort_order": 5,
+					"attribute_id": 33,
+					"swatch_value": null,
+					"label": "Matt",
+					"translations": [
+						{
+							"id": 265,
+							"locale": "en",
+							"label": "Matt",
+							"attribute_option_id": 61
+						},
+						{
+							"id": 266,
+							"locale": "fr",
+							"label": "",
+							"attribute_option_id": 61
+						},
+						{
+							"id": 267,
+							"locale": "nl",
+							"label": "",
+							"attribute_option_id": 61
+						},
+						{
+							"id": 268,
+							"locale": "tr",
+							"label": "",
+							"attribute_option_id": 61
+						},
+						{
+							"id": 269,
+							"locale": "es",
+							"label": "",
+							"attribute_option_id": 61
+						}
+					]
+				},
+				{
+					"id": 62,
+					"admin_name": "Elevation",
+					"sort_order": 6,
+					"attribute_id": 33,
+					"swatch_value": null,
+					"label": "Elevation",
+					"translations": [
+						{
+							"id": 270,
+							"locale": "en",
+							"label": "Elevation",
+							"attribute_option_id": 62
+						},
+						{
+							"id": 271,
+							"locale": "fr",
+							"label": "",
+							"attribute_option_id": 62
+						},
+						{
+							"id": 272,
+							"locale": "nl",
+							"label": "",
+							"attribute_option_id": 62
+						},
+						{
+							"id": 273,
+							"locale": "tr",
+							"label": "",
+							"attribute_option_id": 62
+						},
+						{
+							"id": 274,
+							"locale": "es",
+							"label": "",
+							"attribute_option_id": 62
+						}
+					]
+				}
+			],
+			"translations": [
+				{
+					"id": 57,
+					"locale": "en",
+					"name": "Finish",
+					"attribute_id": 33
+				},
+				{
+					"id": 61,
+					"locale": "es",
+					"name": "",
+					"attribute_id": 33
+				},
+				{
+					"id": 58,
+					"locale": "fr",
+					"name": "",
+					"attribute_id": 33
+				},
+				{
+					"id": 59,
+					"locale": "nl",
+					"name": "",
+					"attribute_id": 33
+				},
+				{
+					"id": 60,
+					"locale": "tr",
+					"name": "",
+					"attribute_id": 33
+				}
+			]
+		}
+	]
+}

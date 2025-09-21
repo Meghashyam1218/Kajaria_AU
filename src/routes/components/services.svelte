@@ -63,6 +63,7 @@
 			{#each tileOptions as option}
 				<button
 					data-aos="zoom-in"
+					data-aos-once="true"
 					class="option-button p-2 text-lg {selectedOption.id === option.id ? 'selected' : ''}"
 					on:click={() => selectOption(option)}
 				>
@@ -72,7 +73,7 @@
 		</div>
 
 		<div class="content-container">
-			<div class="image-toggle-container border-2">
+			<div class="image-toggle-container">
 				<div data-aos="zoom-in" class="image-wrapper">
 					{#if showAfterImage}
 						<img
@@ -235,85 +236,5 @@
 	p {
 		line-height: 1.6;
 		color: #4b5563;
-	}
-	/* 
-	.toggle-controls {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		margin-bottom: 20px;
-	}
-
-	.toggle-label {
-		font-size: 14px;
-		font-weight: 500;
-		color: #6b7280;
-		margin: 0 10px;
-	}
-
-	.toggle-label.active {
-		color: #10b981;
-		font-weight: 600;
-	}
-
-	.toggle-switch {
-		position: relative;
-		display: inline-block;
-		width: 60px;
-		height: 30px;
-	}
-
-	.toggle-switch input {
-		opacity: 0;
-		width: 0;
-		height: 0;
-	}
-
-	.toggle-slider {
-		position: absolute;
-		cursor: pointer;
-		top: 0;
-		left: 0;
-		right: 0;
-		bottom: 0;
-		background-color: #e5e7eb;
-		transition: 0.4s;
-		border-radius: 34px;
-	}
-
-	.toggle-slider:before {
-		position: absolute;
-		content: '';
-		height: 22px;
-		width: 22px;
-		left: 4px;
-		bottom: 4px;
-		background-color: white;
-		transition: 0.4s;
-		border-radius: 50%;
-	}
-
-	input:checked + .toggle-slider {
-		background-color: #10b981;
-	}
-
-	input:checked + .toggle-slider:before {
-		transform: translateX(30px);
-	} */
-
-	.learn-more-button {
-		background-color: #10b981;
-		color: white;
-		border: none;
-		padding: 10px 20px;
-		border-radius: 6px;
-		font-weight: 500;
-		cursor: pointer;
-		transition: background-color 0.2s ease;
-		width: 100%;
-	}
-
-	.learn-more-button:hover {
-		background-color: #059669;
 	}
 </style>

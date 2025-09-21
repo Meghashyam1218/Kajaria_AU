@@ -1,4 +1,3 @@
-import * as cheerio from "cheerio";
 
 export const fetchProducts = async (i, fetch) => {
   try {

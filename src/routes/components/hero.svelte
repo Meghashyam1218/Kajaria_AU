@@ -41,7 +41,7 @@
 
 	<!-- Hero Content -->
 	<div
-		class="relative z-10 flex min-h-[85vh] flex-col items-center justify-center p-4 text-center text-white"
+		class="relative z-10 flex min-h-[90vh] flex-col items-center justify-center p-4 text-center text-white"
 	>
 		<div class="mb-20">
 			<h1 class="text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl">

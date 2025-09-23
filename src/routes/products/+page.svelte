@@ -3,7 +3,7 @@
 
 	export let data;
 	const { extractedData } = data;
-	// console.log(extractedData);
+	// // console.log(extractedData);
 	import { fetchProducts } from '../../utils/fetchProducts.js';
 
 	let products = extractedData;
@@ -13,12 +13,12 @@
 	const loadProducts = async (i) => {
 		try {
 			const response = await fetchProducts(i, fetch);
-			// console.log(`response is ${response}`);
+			// // console.log(`response is ${response}`);
 			if (response == '') {
 				loadMore = false;
 			}
 			products = [...products, ...response];
-			console.log(products);
+			// console.log(products);
 		} catch (err) {
 			error = err.message;
 		}

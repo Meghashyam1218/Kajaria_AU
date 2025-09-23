@@ -6,6 +6,7 @@
 
 	export let data;
 	export let { products } = data;
+	// console.log('Products:', products);
 	export let error = data.error ?? null;
 
 	const categories = {

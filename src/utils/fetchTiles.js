@@ -15,7 +15,7 @@ export async function fetchTiles({ category = "26", finish = "", subcategory = "
     const apiUrl = `https://www.wakajariaceramics.com.au/category-products/${category}?Finish=${finish}&subcategory=${subcategory}`;
     const corsProxy = "https://corsproxy.io/?url=";
     const response = await fetch(corsProxy + apiUrl);
-    console.log("API URL: " + corsProxy + apiUrl);
+    // console.log("API URL: " + corsProxy + apiUrl);
     if (!response.ok) {
       throw new Error(`Failed to fetch data: ${response.status}`);
     }

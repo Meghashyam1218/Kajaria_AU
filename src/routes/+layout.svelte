@@ -15,8 +15,10 @@
 <div class="app">
 	<main>
 		<Menu />
-		{@render children()}
-		<Footer />
+		<div class="md:mt-22">
+			{@render children()}
+			<Footer />
+		</div>
 	</main>
 </div>
 

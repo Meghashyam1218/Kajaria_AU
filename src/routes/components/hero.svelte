@@ -43,7 +43,7 @@
 		{/each}
 	</div>
 	<a
-		href="/products"
+		href="/tiles"
 		class="my-4 flex cursor-pointer items-center justify-center rounded-2xl bg-zinc-100 p-4 font-semibold text-zinc-700 hover:font-bold"
 	>
 		<p class="mr-2 text-xl md:text-2xl">Explore All Products</p>

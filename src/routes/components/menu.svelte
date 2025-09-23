@@ -27,7 +27,7 @@
 				>
 				<a
 					data-sveltekit-preload-data="hover"
-					href="/products"
+					href="/tiles"
 					class="text-gray-950 hover:text-gray-800">Products</a
 				>
 				<a
@@ -90,7 +90,7 @@
 			>
 			<a
 				data-sveltekit-preload-data="tap"
-				href="/products"
+				href="/tiles"
 				class="block px-4 py-2 text-center font-semibold text-gray-950 hover:bg-gray-100"
 				>Products</a
 			>

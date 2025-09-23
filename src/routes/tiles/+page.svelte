@@ -1,6 +1,8 @@
+<!-- src/routes/tiles/+page.svelte -->
 <script>
-	import { goto } from '$app/navigation';
 	import { page } from '$app/stores';
+	import Product from '../components/product.svelte';
+	import ProductModal from '../components/productModal.svelte';
 
 	export let data;
 	export let { products } = data;
@@ -31,35 +33,20 @@
 
 	const handleFilterChange = () => {
 		const params = new URLSearchParams();
-
-		if (category) {
-			params.set('category', category);
-		}
-		if (finish.length > 0) {
-			params.set('finish', finish.join(','));
-		}
-		if (subcategory.length > 0) {
-			params.set('subcategory', subcategory.join(','));
-		}
+		if (category) params.set('category', category);
+		if (finish.length > 0) params.set('finish', finish.join(','));
+		if (subcategory.length > 0) params.set('subcategory', subcategory.join(','));
 
 		const query = `/tiles?${params.toString()}`;
-		console.log('Navigating to: ' + query);
-
 		window.location = query;
-		// goto(query, { keepFocus: true, noScroll: true });
 	};
 
 	function toggleArray(arr, value) {
-		if (arr.includes(value)) {
-			return arr.filter((v) => v !== value);
-		} else {
-			return [...arr, value];
-		}
+		return arr.includes(value) ? arr.filter((v) => v !== value) : [...arr, value];
 	}
 
 	/**
-	 * Svelte action to detect clicks outside of a node.
-	 * Closes the node if it has an 'open' property.
+	 * Svelte action to detect clicks outside of a <details> node to close it.
 	 */
 	function clickOutside(node) {
 		const handleClick = (event) => {
@@ -67,9 +54,7 @@
 				node.open = false;
 			}
 		};
-
 		document.addEventListener('click', handleClick, true);
-
 		return {
 			destroy() {
 				document.removeEventListener('click', handleClick, true);
@@ -77,8 +62,8 @@
 		};
 	}
 
-	// A reference to the category <details> element to close it on selection
 	let categoryDetails;
+	let selectedProduct = null;
 </script>
 
 <main class="mx-auto max-w-7xl p-4 sm:p-6 lg:p-8">
@@ -281,32 +266,14 @@
 		{:else}
 			<div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
 				{#each products as product (product.name)}
-					<div
-						class="group relative overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-[#204e44]/10"
-					>
-						{#if product.isNew === 'New'}
-							<span
-								class="absolute top-3 right-3 z-10 rounded-full bg-[#ffd400] px-3 py-1 text-xs font-bold text-[#204e44] uppercase"
-							>
-								New!
-							</span>
-						{/if}
-						<div class="h-56 w-full overflow-hidden">
-							<img
-								src={product.imageUrl}
-								alt={product.name}
-								class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
-							/>
-						</div>
-						<div class="p-4">
-							<h2 class="truncate text-lg font-bold text-[#204e44]" title={product.name}>
-								{product.name}
-							</h2>
-							<p class="text-md mt-1 font-semibold text-[#204e44]">{product.price}</p>
-						</div>
-					</div>
+					<Product {product} on:openModal={(event) => (selectedProduct = event.detail)} />
 				{/each}
 			</div>
 		{/if}
 	</section>
 </main>
+
+<!-- Product Detail Modal -->
+{#if selectedProduct}
+	<ProductModal product={selectedProduct} on:close={() => (selectedProduct = null)} />
+{/if}

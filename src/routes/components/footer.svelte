@@ -70,7 +70,7 @@
 			>
 			<a
 				alt="none"
-				href="/products"
+				href="/tiles"
 				class="font-bold text-gray-500 underline-offset-2 hover:underline max-lg:text-sm"
 				>Products</a
 			>

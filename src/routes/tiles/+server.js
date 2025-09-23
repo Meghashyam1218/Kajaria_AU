@@ -33,12 +33,17 @@ export async function GET({ url }) {
           const html = await detailsResponse.text();
           const $details = cheerio.load(html);
           // console.log('Fetched details for:', product.slug);
+          // full path if needed
+          const availability = $details("#product-form > div > div > div.right.col-lg-7.col-md-6 > div.info.row > div.col-md-4 > div.col-12.availability label").text().trim();
+
+          // or simpler by class:
+          const availabilityAlt = $details(".col-12.availability label").text().trim();
           return {
             name: product.name,
             slug: product.slug,
             imageUrl: product.image,
             isNew: product.new,
-            availability: $details('span.text-success').text().trim() || 'N/A',
+            availability: availabilityAlt || 'N/A',
             Size: $details('td:contains("Size")').next().text().trim(),
             'Product Type': $details('td:contains("Product Type")').next().text().trim(),
             Finish: $details('td:contains("Finish")').next().text().trim(),

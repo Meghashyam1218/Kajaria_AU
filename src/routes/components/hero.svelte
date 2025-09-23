@@ -5,6 +5,8 @@
 
 	// This data will be fetched from the /tiles endpoint
 	let products = [];
+	let isLoading = true; // State to control the skeleton loader
+
 	onMount(async () => {
 		try {
 			// Fetching from the /tiles endpoint which should be a server route
@@ -14,12 +16,12 @@
 			}
 			const data = await response.json();
 			// Assuming the endpoint returns an object with a 'products' key
-			// and we only want to show a few featured products.
 			products = data.products;
-			// console.log('Fetching products from /tiles', products);
 		} catch (error) {
 			console.error('Error fetching featured products:', error);
 			// Optionally handle the error in the UI
+		} finally {
+			isLoading = false; // Hide loader regardless of success or error
 		}
 	});
 	let selectedProduct = null;
@@ -65,14 +67,31 @@
 		<div class="flex justify-center">
 			<!-- Container for horizontal scrolling -->
 			<div class="inline-flex max-w-full gap-2 overflow-x-auto pb-4">
-				{#if products.length > 0}
+				{#if isLoading}
+					<!-- PENDING STATE: Show skeleton loaders -->
+					{#each Array(5) as _}
+						<div class="w-64 flex-shrink-0">
+							<div
+								class="group relative overflow-hidden rounded-lg border border-gray-200 bg-white"
+							>
+								<div class="h-56 w-full animate-pulse bg-gray-200" />
+								<div class="p-4">
+									<div class="h-6 w-3/4 animate-pulse rounded bg-gray-200" />
+									<div class="mt-2 h-4 w-1/2 animate-pulse rounded bg-gray-200" />
+								</div>
+							</div>
+						</div>
+					{/each}
+				{:else if products.length > 0}
+					<!-- RESOLVED STATE: Show the actual products -->
 					{#each products as product (product.name)}
 						<div class="w-64 flex-shrink-0">
 							<Product {product} on:openModal={(event) => (selectedProduct = event.detail)} />
 						</div>
 					{/each}
 				{:else}
-					<p class="w-full text-center text-gray-500">Loading featured products...</p>
+					<!-- EMPTY STATE: If fetch completes but finds no products -->
+					<p class="w-full text-center text-gray-500">No featured products available.</p>
 				{/if}
 			</div>
 		</div>

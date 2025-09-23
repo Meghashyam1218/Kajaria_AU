@@ -1,12 +1,11 @@
-<!-- src/routes/tiles/+page.svelte -->
 <script>
 	import { page } from '$app/stores';
-	import Product from '../components/product.svelte';
 	import ProductModal from '../components/productModal.svelte';
 
 	export let data;
-	export let { products } = data;
-	// console.log('Products:', products);
+	// `products` is now a promise inside `data.streamed`
+	// export let { products } = data; // This line is no longer needed
+
 	export let error = data.error ?? null;
 
 	const categories = {
@@ -34,21 +33,29 @@
 
 	const handleFilterChange = () => {
 		const params = new URLSearchParams();
-		if (category) params.set('category', category);
-		if (finish.length > 0) params.set('finish', finish.join(','));
-		if (subcategory.length > 0) params.set('subcategory', subcategory.join(','));
+
+		if (category) {
+			params.set('category', category);
+		}
+		if (finish.length > 0) {
+			params.set('finish', finish.join(','));
+		}
+		if (subcategory.length > 0) {
+			params.set('subcategory', subcategory.join(','));
+		}
 
 		const query = `/tiles?${params.toString()}`;
 		window.location = query;
 	};
 
 	function toggleArray(arr, value) {
-		return arr.includes(value) ? arr.filter((v) => v !== value) : [...arr, value];
+		if (arr.includes(value)) {
+			return arr.filter((v) => v !== value);
+		} else {
+			return [...arr, value];
+		}
 	}
 
-	/**
-	 * Svelte action to detect clicks outside of a <details> node to close it.
-	 */
 	function clickOutside(node) {
 		const handleClick = (event) => {
 			if (node && !node.contains(event.target) && node.open) {
@@ -238,43 +245,84 @@
 
 	<!-- Products Grid Section -->
 	<section>
-		{#if error}
-			<div class="rounded-md border border-red-400 bg-red-100 p-6 text-center text-red-700">
-				<p class="font-semibold">An error occurred:</p>
-				<p>{error}</p>
-			</div>
-		{:else if products.length === 0}
-			<div
-				class="flex h-64 flex-col items-center justify-center rounded-lg border-2 border-dashed border-gray-300 bg-gray-50"
-			>
-				<svg
-					xmlns="http://www.w3.org/2000/svg"
-					class="h-12 w-12 text-[#204e44]/50"
-					fill="none"
-					viewBox="0 0 24 24"
-					stroke="currentColor"
-					stroke-width="2"
-				>
-					<path
-						stroke-linecap="round"
-						stroke-linejoin="round"
-						d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-					/>
-				</svg>
-				<p class="mt-4 text-lg font-medium text-[#204e44]">No products match your criteria.</p>
-				<p class="text-sm text-[#204e44]/80">Try adjusting your filters.</p>
-			</div>
-		{:else}
+		{#await data.streamed.products}
+			<!-- PENDING STATE: Show a skeleton loader while products are loading -->
 			<div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-				{#each products as product (product.name)}
-					<Product {product} on:openModal={(event) => (selectedProduct = event.detail)} />
+				{#each Array(12) as _}
+					<div class="group relative overflow-hidden rounded-lg border border-gray-200 bg-white">
+						<div class="h-56 w-full animate-pulse bg-gray-200"></div>
+						<div class="p-4">
+							<div class="h-6 w-3/4 animate-pulse rounded bg-gray-200"></div>
+							<div class="mt-2 h-4 w-1/2 animate-pulse rounded bg-gray-200"></div>
+						</div>
+					</div>
 				{/each}
 			</div>
-		{/if}
+		{:then products}
+			<!-- RESOLVED STATE: Show the actual products once loaded -->
+			{#if products.length === 0}
+				<div
+					class="col-span-full flex flex-col items-center justify-center rounded-lg bg-gray-50 py-16 text-center"
+				>
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						class="h-12 w-12 text-[#204e44]/50"
+						fill="none"
+						viewBox="0 0 24 24"
+						stroke="currentColor"
+						stroke-width="1.5"
+					>
+						<path
+							stroke-linecap="round"
+							stroke-linejoin="round"
+							d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+						/>
+					</svg>
+					<p class="mt-4 text-lg font-medium text-[#204e44]">No products match your criteria.</p>
+					<p class="text-sm text-[#204e44]/80">Try adjusting your filters.</p>
+				</div>
+			{:else}
+				<div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+					{#each products as product (product.name)}
+						<button
+							on:click={() => (selectedProduct = product)}
+							class="group relative overflow-hidden rounded-lg border border-gray-200 bg-white text-left shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-[#204e44]/10"
+						>
+							{#if product.isNew === 'New'}
+								<span
+									class="absolute top-3 right-3 z-10 rounded-full bg-[#D1A134] px-3 py-1 text-xs font-bold text-[#204e44] uppercase"
+								>
+									New!
+								</span>
+							{/if}
+							<div class="h-56 w-full overflow-hidden">
+								<img
+									src={product.imageUrl}
+									alt={product.name}
+									class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+								/>
+							</div>
+							<div class="p-4">
+								<h2 class="truncate text-lg font-bold text-[#204e44]" title={product.name}>
+									{product.name}
+								</h2>
+							</div>
+						</button>
+					{/each}
+				</div>
+			{/if}
+		{:catch error}
+			<!-- REJECTED STATE: Show an error message if the fetch fails -->
+			<div
+				class="col-span-full flex flex-col items-center justify-center rounded-lg bg-red-50 py-16 text-center"
+			>
+				<p class="mt-4 text-lg font-medium text-red-700">Failed to load products</p>
+				<p class="text-sm text-red-600">{error.message}</p>
+			</div>
+		{/await}
 	</section>
 </main>
 
-<!-- Product Detail Modal -->
 {#if selectedProduct}
-	<ProductModal product={selectedProduct} on:close={() => (selectedProduct = null)} />
+	<ProductModal {product} on:close={() => (selectedProduct = null)} />
 {/if}

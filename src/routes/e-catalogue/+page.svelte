@@ -1,4 +1,6 @@
-<main class="flex min-h-[calc(100vh-10rem)] flex-col items-center justify-center p-4 sm:p-6 lg:p-8">
+<main
+	class="mt-22 flex min-h-[calc(100vh-10rem)] flex-col items-center justify-center p-4 sm:p-6 lg:p-8"
+>
 	<div
 		class="w-full max-w-md overflow-hidden rounded-xl bg-white shadow-2xl ring-1 ring-black/5"
 		data-aos="fade-up"

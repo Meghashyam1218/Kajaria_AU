@@ -75,7 +75,7 @@
 </script>
 
 <main class="mx-auto max-w-7xl p-4 sm:p-6 lg:p-8">
-	<div class="mb-8 text-center">
+	<div class="mt-24 mb-8 text-center">
 		<h1 class="text-4xl font-extrabold tracking-tight text-[#204e44] sm:text-5xl">
 			Our Tile Collection
 		</h1>
@@ -286,7 +286,7 @@
 					{#each products as product (product.name)}
 						<button
 							on:click={() => (selectedProduct = product)}
-							class="group relative overflow-hidden rounded-lg border border-gray-200 bg-white text-left shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-[#204e44]/10"
+							class="group relative cursor-pointer overflow-hidden rounded-lg border border-gray-200 bg-white text-left shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-[#204e44]/10"
 						>
 							{#if product.isNew === 'New'}
 								<span
@@ -324,5 +324,5 @@
 </main>
 
 {#if selectedProduct}
-	<ProductModal {product} on:close={() => (selectedProduct = null)} />
+	<ProductModal product={selectedProduct} on:close={() => (selectedProduct = null)} />
 {/if}

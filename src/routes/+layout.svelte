@@ -31,7 +31,7 @@
 <div class="app">
 	<main>
 		<Menu />
-		<div class="md:mt-22">
+		<div class="">
 			{@render children()}
 			<Footer />
 		</div>

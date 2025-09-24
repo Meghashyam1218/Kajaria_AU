@@ -27,7 +27,7 @@
 	let selectedProduct = null;
 </script>
 
-<section class="relative -mt-22" data-aos="fade-up">
+<section class="relative" data-aos="fade-up">
 	<!-- Hero Background Image -->
 	<div class="absolute inset-0 z-0">
 		<img

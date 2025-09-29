@@ -1,9 +1,9 @@
-<footer class="bg-[#204e44] text-gray-200">
+<footer class="border-t-4 border-[#D1A134] bg-[#204e44] text-gray-200">
 	<div class="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-		<div class="grid grid-cols-1 gap-8 md:grid-cols-12">
+		<div class="grid grid-cols-1 gap-8 border-t border-white/20 pt-10 md:grid-cols-12">
 			<!-- Contact Info Section -->
 			<div class="md:col-span-4">
-				<a href="/"><img alt="logo" class="mb-4 h-14" src="/logo.png" /></a>
+				<a href="/"><img alt="logo" class="mb-4 h-20" src="/logo.png" /></a>
 				<div class="space-y-4 text-base">
 					<div class="flex items-start gap-3">
 						<svg

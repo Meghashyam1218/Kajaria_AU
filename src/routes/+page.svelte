@@ -1,12 +1,13 @@
 <script>
 	import '../app.css';
 	import Hero from './components/hero.svelte';
-	import Services from './components/services.svelte';
-	import Testimonials from './components/testimonials.svelte';
+	import WallServices from './components/wallServices.svelte';
+	import FloorServices from './components/floorServices.svelte';
+	import Finishes from './components/finishes.svelte';
 </script>
 
 <Hero />
 
-<Services />
-<Testimonials />
-<div id="services"></div>
+<WallServices />
+<FloorServices />
+<Finishes />
